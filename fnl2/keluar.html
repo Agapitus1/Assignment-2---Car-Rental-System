@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Hertz-UTS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- local css -->
+      <link rel="stylesheet" href="../css/styles.css">
+      <!-- CSS Bootstrap v5.0  -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      <!-- Bootswatch, Pulse  -->
+      <link rel="stylesheet" href="https://bootswatch.com/5/pulse/bootstrap.css" integrity="sha384-uvREVKhmY1/Y+Jl+/xTE1JTNVycUxQNgGN8Wbjp7z+eOVibvJVJiy+6Fn8szL8va" crossorigin="anonymous">
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" crossorigin="anonymous"></script>
+      <!-- local Javascript -->
+      <script src="form.js" crossorigin="anonymous"></script>
+    <title>Hertz Car Rental Center</title>
+    
+    <style>
+
+ul {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  margin: 7px;  
+  padding: 7px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li{
+  display: block;
+  color: white;
+  text-align: left;
+  padding: -25px -25px;
+  text-decoration: none;
+}
+
+
+body{
+          background: #fff;
+          padding-bottom: 30px;
+      }
+      
+      #main-content{
+          background: #eee;
+          width: 1200px;
+          margin-left: 160px;
+          margin-top: 30px;
+          height: 1000px;
+          padding: 5px;
+      }
+      
+      
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 700px;
+  
+  margin: 10px;
+  text-align: left;
+  font-family: arial;
+  float: left;
+  margin-left: 20px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: static;
+  
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.hmm {
+    text-align: center;
+    margin-right: 145px;
+    margin-top: 4px;
+    color: white;
+    font-size: 35px;
+    font-family: Montserrat;
+}
+
+.hmm1 {
+    text-align: center;
+    margin-left: 350px;
+    margin-top: 10px;
+    font-size: 50px;
+}
+
+.hmm2 {
+    margin-left: 50px;
+    margin-top: 8px;
+    margin-bottom: 50px;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-top: -5px;
+
+}
+
+
+.hmm5 {
+    margin-left: 810px;
+    margin-right: -331px;
+    
+    font-size: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 140%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-select {
+    display: block;
+    width: 140%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+</style>
+
+  </head>
+
+  <body >
+    
+    <ul>
+  <li style="float:left" ><a href="AJAX2.html"><img src="Hertz.png" alt="" width=150px height=75px ></a></li>
+  <li style="float:center" class="hmm">Car Rental Center</li>
+  </ul>
+    
+    <main id="main-content"> <!-- shows user details forms here-->
+      <div class="hmm2" class="table-checkout justify-content-md-center">
+        <form onSubmit="form(); return false;">
+            <fieldset class="col-md-8 order-md-1">
+              <h1 class="hmm1">Check Out</h1>
+                <legend>Customer Details and Payment</legend>
+                <div>
+                  <p>Please fill in your details. <br>
+                  <span style="color: red">*</span> Indicates required field   
+                  </p>  
+                </div>
+              
+                <div class="form-group"> <!-- Full Name -->
+                    <label for="firstname" class="form-label mt-4 required">Full Name <span style="color: red">*</span></label>
+                    <input type="text" class="form-control" id="full name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group"> <!-- Email Address -->
+                    <label for="email" class="form-label mt-4">Email Address <span style="color: red">*</span></label>
+                    <div class="form-group">
+                      <div>
+                          <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group"> <!-- Address Line 1 -->
+                    <label for="address1" class="form-label mt-4">Address Line 1 <span style="color: red">*</span></label>
+                    <input type="text" class="form-control" id="address1" placeholder="Enter address 1" required>
+                </div>
+                <div class="form-group"> <!-- Address Line 2 -->
+                    <label for="address2" class="form-label mt-4">Address Line 2</label>
+                    <input type="text" class="form-control" id="address2" placeholder="Enter address 2">
+                </div>
+                <div class="form-group"> <!-- State -->
+                    <label for="state" class="form-label mt-4">State <span style="color: red">*</span></label>
+                    <input type="text" class="form-control" id="state" placeholder="Enter your State" required>
+                </div>
+                <div class="form-group"> <!-- City -->
+                    <label for="city" class="form-label mt-4">City <span style="color: red">*</span></label>
+                    <input type="text" class="form-control" id="city" placeholder="Enter your City" required>
+                </div>
+                <div class="form-group"> <!-- Postcode -->
+                    <label for="postcode" class="form-label mt-4">Postcode <span style="color: red">*</span></label>
+                    <input type="number" class="form-control" id="postcode" placeholder="Enter your Postcode" required>
+                </div>
+                <div class="form-group"> <!-- Payment Type -->
+                    <label for="payment" class="form-label mt-4">Payment Type <span style="color: red">*</span></label>
+                    <select class="form-select" id="paymenttype">
+                        <option value= "">Select Your Payment Type</option>
+                        <option value= "Visa">Visa</option>
+                        <option value= "Master Card">Master Card</option>
+                        <option value= "Paypal">Paypal</option>
+                        <option value= "American Express">American Express</option>
+                        <option value= "Apple Pay">Apple Pay</option>
+                        <option value= "Google Pay">Google Pay</option>
+                    </select>
+                    </div><br>
+                    <div class="cartTotal"></div> <!-- show Total Rent  -->
+                <div class="hmm5" class= "form-button flex-column">
+                    <button type ="button" class="btn btn-secondary" onClick="backButton()">Continue Shopping</button> 
+                    <button type ="submit" class="btn btn-primary">Booking</button> 
+                </div>
+            </fieldset>
+        </form>
+      </div>
+    </main>
+
+  <footer>
+
+  </footer>
+
+  </body>
+</html>

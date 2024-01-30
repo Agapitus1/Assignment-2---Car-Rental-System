@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hertz-UTS">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Hertz Car Rental Center</title>
+<style>
+
+ul {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li{
+  display: block;
+  color: white;
+  text-align: left;
+  padding: -25px -25px;
+  text-decoration: none;
+}
+
+
+body
+      #main-content{
+          width: 100%;
+          height: 100%;
+         
+      }
+      
+	  <style>
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 700px;
+  
+  margin: 10px;
+  text-align: left;
+  font-family: arial;
+  float: left;
+  margin-left: 22px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: static;
+  
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.special {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    background-color: grey;
+    border: none;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: -50px;
+    color: white;
+    cursor: pointer;
+    position: static;
+}
+
+.special:hover {
+  opacity: 0.8;
+}
+
+.img {
+    width: 300px;
+    height: 200px;
+}
+
+
+.hmm {
+    text-align: center;
+    margin-right: 580px;
+    margin-top: 10px;
+    color: white;
+    font-size: 35px;
+    font-family: Montserrat;
+}
+
+.hmm2 {
+    text-align: center;
+    margin-right: 20px;
+    margin-top: -45px;
+    color: white;
+    font-size: 35px;
+    font-family: Montserrat;
+}
+
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li style="float:left" ><a><img src="Hertz.png" alt="" width="25%" height="12.5%"></a></li>
+  <li style="float:center" class="hmm">Car Rental Center</li>
+  <li style="float:right" class="hmm2"> <button class="special" onclick="checkCart()">Car Reservation</button></li>
+</ul>
+
+    <div id="myData"></div>
+    <script>
+
+        fetch('cars.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+                cars_array = data;
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+            
+        let cars_array = [] 
+        
+        let shopping_cart = window.sessionStorage.getItem("hertz@cart") ? JSON.parse(window.sessionStorage.getItem("hertz@cart")) : []
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML =
+                `
+                <div class="card" >
+                <img class="img" src="${data[i].images}" align="top">
+                <h2>${data[i].brand}-${data[i].model}-${data[i].modelYear}</h2>
+                <p><b>Mileage: </b>${data[i].mileage}</p>
+                <p><b>Fuel Type: </b>${data[i].fuelType}</p>
+                
+                <p ><b>Seats: </b>${data[i].seats}</p>
+                <p ><b>Price per day: </b>$${data[i].pricePerDay}</p>
+                <p ><b>Availability: </b>${data[i].availability}</p>
+                <p ><b>Description: </b>${data[i].description}</p>
+                <br><br><br>
+                <button onClick="addCart(${data[i].id})" >Add to Cart</button>
+                </div>
+                `
+                
+                mainContainer.appendChild(div);
+            }
+        }
+        
+                  function addCart(id){
+                  let car = cars_array.find(car => car.id == id)
+                  let cart = shopping_cart.find(car => car.id == id)
+                  
+                  if (shopping_cart.find(car => car.id == id))
+                    { message = `Sorry, ${cart.brand} ${cart.model} has been added to your cart before!`}
+                  else if(car.availability == "True"){ shopping_cart.push(car)
+                  console.log("shopping cart", shopping_cart)
+                    message = `${car.brand} ${car.model} added to cart successfully!`
+                    } else if(car.availability == "False"){ message = `Sorry, ${car.brand} ${car.model} is not available! Please rent other cars.`}
+                  
+                  //if (shopping_cart.find(car => car.id > 1))
+                  // { message = `Sorry you have added ${cart.brand} ${cart.model} in your cart before.`}
+                  //let message = `Sorry ${car.brand} ${car.model} is not available now. Please rent other cars.`;
+                  //if(car.id == cart.){ message = `Sorry you have added ${cart.brand} ${cart.model} in your cart before.`
+                  //  } else if(car.availability == "TRUE"){ shopping_cart.push(car)
+                  //console.log("shopping cart", shopping_cart)
+                  // message = `${car.brand} ${car.model} added to cart successfully!`
+    //}
+    alert(message)
+    return true;
+}
+
+function checkCart(){
+    window.sessionStorage.setItem("hertz@cart", JSON.stringify(shopping_cart));
+    window.location.href="asw2.html"
+}   
+
+    </script>
+</body>
+</html>
